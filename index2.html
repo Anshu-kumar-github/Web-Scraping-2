@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scrape Hindustan Times Articles</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #a8dadc, hsl(153, 39%, 44%));
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .wrapper {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .info-section {
+            flex: 1;
+            background: linear-gradient(to bottom right, #40916c, #2d6a4f);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #2d6a4f;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+
+        select, input[type="number"], button {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f1f3f5;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus, input[type="number"]:focus {
+            border-color: #52b788;
+            outline: none;
+        }
+
+        button {
+            background-color: #40916c;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2d6a4f;
+        }
+
+        .info-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-section p {
+            font-size: 16px;
+            max-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+            }
+            .info-section {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-section">
+            <h2>Scrape Hindustan Times Articles</h2>
+            <form action="/scrape" method="post">
+                <label for="category">Choose Category:</label>
+                <select name="category" id="category" required>
+                    <option value="india-news">India News</option>
+                    <option value="world-news">World News</option>
+                    <option value="business">Business</option>
+                    <option value="cities">Cities</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="sports">Sports</option>
+                </select>
+
+                <label for="max_articles">Number of Articles:</label>
+                <input type="number" id="max_articles" name="max_articles" value="10" min="1" required>
+
+                <label for="file_type">Choose File Type:</label>
+                <select name="file_type" id="file_type" required>
+                    <option value="csv">CSV</option>
+                    <option value="txt">TXT</option>
+                    <option value="xlsx">Excel</option>
+                </select>
+
+                <button type="submit">Scrape Articles</button>
+            </form>
+        </div>
+        <div class="info-section">
+            <h2>Welcome!</h2>
+            <p>Select your preferred news category, number of articles, and download format. Start scraping with one click!</p>
+        </div>
+    </div>
+</body>
+</html>
